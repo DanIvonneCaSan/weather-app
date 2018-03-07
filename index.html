@@ -14,8 +14,8 @@
 <body>
   <div class="container-fluid">
     <div class="container-elements">
-      <div class="row justify-content-center">
-        <div class="col-6 col-sm-6 col-md-6 col-lg-6 offset-4 offset-sm-4 offset-md-4 offset-lg-4">
+      <div class="row justify-content-center" id="dataInfo">
+        <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-6 offset-4 offset-sm-4 offset-md-4 offset-lg-4">
           <div class="row">
             <h1 id="temperature">33333</h1>
 
@@ -39,30 +39,37 @@
             <a href="./views/view1.html">Predicción de la semana</a>
           </div>
         </div>
-      </div>
+      </div> -->
 
     <div class="row justify-content-center">
       <div class="col-6 col-sm-6 col-md-6 col-lg-6 offset-2 offset-sm-2 offset-md-2 offset-lg-2 secnd-sec">
+        <!-- <div class="form-group row" id="form-group">
+          <label for="city-search" class="col-2 col-sm-2 col-md-2 col-lg-2 col-form-label">Nombre de la Ciudad</label>
+          <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+            <input type="text" id="city-search" placeholder="Ejemplo: Rochester, NY">
+          </div>
+        </div> -->
+
         <div class="form-group row" id="form-group">
           <label for="example-search-input" class="col-2 col-sm-2 col-md-2 col-lg-2 col-form-label">Latitud</label>
           <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-            <input class="form-control" type="search" placeholder="Ej.: Número" id="search-latitude">
+            <input class="form-control" type="search" placeholder="Ej.: 23.634501" id="search-latitude">
           </div>
         </div>
         <div class="form-group row">
-          <label for="example-search-input" class="col-2 col-sm-2 col-md-2 col-lg-2 col-form-label">Altitud</label>
+          <label for="example-search-input" class="col-2 col-sm-2 col-md-2 col-lg-2 col-form-label">Longitud</label>
           <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-            <input class="form-control" type="search" placeholder="Ej.: Número" id="search-altitude">
+            <input class="form-control" type="search" placeholder="Ej.:-102.552" id="search-altitude">
           </div>
         </div>
-        <button type="submit" name="button" class="btn btn-primary">Localización</button>
+        <button id="btn-sub" type="submit" name="button" class="btn btn-primary">Localización</button>
       </div>
     </div>
     </div>
 
 </div>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3kQp9D-DU4IXrn9G17x2T6Nu9zHfkKSE&libraries=places,geometry"></script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script type="text/javascript" src="./js/app.js"></script>
 </body>
