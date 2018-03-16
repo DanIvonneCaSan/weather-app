@@ -78,11 +78,11 @@ const paintData = data => {
   console.log(dailyInfo);
 
   templateInfo +=
-      ` <div class="col-6 col-sm-6 col-md-6 col-lg-6 offset-4 offset-sm-4 offset-md-4 offset-lg-4">
-          <div class="row">
+      ` <div class=" card col-6 col-sm-6 col-md-6 col-lg-6 offset-4 offset-sm-4 offset-md-4 offset-lg-4">
+          <div class="card-body">
           <h1 id="temperature">${tempF}</h1>
           </div>
-          <div class="row">
+          <div class="row columns">
             <span>
               <p>Wind: </p>
               <p>Humidity:  </p>
@@ -96,8 +96,8 @@ const paintData = data => {
               <p id="value-pressure">${pressure}</p>
             </span>
           </div>
-                <div class="row">
-                  <a href="./views/view1.html" id="prediction">Predicción de la semana</a>
+                <div class="row predcont">
+                  <a href="#" id="prediction">Predicción de la semana</a>
                 </div>
               </div>
             </div>`
@@ -106,31 +106,56 @@ const paintData = data => {
     divDataInfo.innerHTML = templateInfo;
 
 
-    // $('#prediction').click({
-    //   let templateDiary = ``;
-    //   // console.log(data);
-    //   templateDiary +=
-    //   `<div class="row">
-    //     <span>
-    //       <p>Lunes</p>
-    //       <p>Martes</p>
-    //       <p>Miércoles</p>
-    //       <p>Jueves</p>
-    //       <p>Viernes</p>
-    //
-    //     </span>
-    //     <span>
-    //       <p id="value1"></p>
-    //       <p id="value2"></p>
-    //       <p id="value3"></p>
-    //       <p id="value4">press</p>
-    //       <p id="value5">press</p>
-    //       <p id="value6">press</p>
-    //       <p id="value7">press</p>
-    //
-    //     </span>
-    // </div>`
-    //   divDailyInfo.innerHTML = templateDiary;
-    // });
+    $('#prediction').click(function (){
+      console.log(data);
+      console.log(dailyInfo);
+      let templateDiary = ``;
+      data.daily.data.forEach(day => {
+      console.log(day);
+      templateDiary +=
+      ` <div class="card col-8 offset-1">
+          <div class="card-body text-center">
+            <h3  class="card-title m-1">${unixDateToCurrentDate(day.time)}</h3>
+              <p>Temperature-high: ${day.temperatureHigh} </p>
+              <p>Temperature-min: ${day.temperatureMin} </p>
+              <p>Humidity: ${day.humidity}</p>
+              <p>UV index: ${day.uvIndex}</p>
+              <p>Wind: ${day.windSpeed}</p>
+              <p>Pressure: ${day.pressure}</p>
+          </div>
+        </div>`
+    });
+    divDataInfo.innerHTML = templateDiary;
+  });
+};
 
+const unixDateToCurrentDate = (unixNumber) => new Date(unixNumber * 1000).toLocaleString('en-us', {
+    weekday: 'long'
+});
+
+
+var flickerAPI = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=9e3bc1f1f9a8c60205c0add263c5c8a5&per_page=10&format=json&nojsoncallback=1";
+
+$.ajax ({
+    url: flickerAPI,
+
+}).done(function( data ) {
+    console.log(data);
+    var photo = data.photos.photo[0].id;
+    console.log(photo);
+    handleResponsePhoto(photo);
+}).fail(handleFailurePhoto)
+
+function handleResponsePhoto(photo) {
+    console.log('exito');
+    console.log(photo);
+
+}
+
+function handleFailure() {
+    console.log('error');
+};
+
+function handleFailurePhoto() {
+    console.log('error');
 };

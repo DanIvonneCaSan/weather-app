@@ -1,11 +1,45 @@
-.container-elements {
+*{
+  text-align: center;
+}
 
-  background-color: transparent;
+body {
+  background-image: url("../assets/images/chiapas.jpg");
+  background-repeat: repeat;
+  /* background-size: cover; */
+}
+
+#search-altitude, #search-latitude {
+  margin-left: 10%;
+}
+
+.container-elements {
+  background-color:rgba(0, 0, 0, 0.4);
   margin: 10%;
-  margin-top: 30%;
   padding: 0;
 }
 
 .secnd-sec{
-  padding-top: 10%;
+  padding-top: 0%;
+  margin: 0;
+}
+
+.card {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.84);
+  display: block;
+  margin: 5%;
+}
+
+.columns {
+  padding-left: 40%;
+}
+
+.predcont {
+  padding-left: 35%;
+}
+
+label{
+  color: white;
+  font-size: 14px;
+  font-weight: 800px;
 }
